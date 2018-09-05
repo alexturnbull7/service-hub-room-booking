@@ -26,31 +26,6 @@ STATIC_URL = '/static/'
 #     os.path.join(BASE_DIR, 'static'),
 # )
 
-# STATICFILES_DIRS = ([
-#     os.path.join(os.path.dirname(BASE_DIR), 'MakeCalls', 'Static'),    
-# ])
-
-STATIC_URL = '/Static/'
-
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'MakeCalls', 'MakeCalls', 'Static')
-
-
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
-
-MEDIA_URL = os.path.join(BASE_DIR, 'media/')
-
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-MIDDLEWARE_CLASSES = (
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-)
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -113,6 +88,7 @@ ALLOWED_HOSTS = ['*']
 
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
