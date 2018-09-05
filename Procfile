@@ -1,1 +1,1 @@
-web: gunicorn xyz.wsgi
+web: gunicorn hub_room_booking.wsgi
