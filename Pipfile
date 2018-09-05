@@ -11,6 +11,7 @@ django-allauth = "==0.36.0"
 djangorestframework-jwt = "*"
 django-cors-headers = "==2.2.0"
 python-dateutil = "*"
+dj-database-url = "==0.5.0"
 
 
 [dev-packages]
