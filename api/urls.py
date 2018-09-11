@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import RoomList, RoomDetail, CompanyList, CompanyDetail, UserTypeList, UserTypeDetail, StatusList, StatusDetail, ProfileList, ProfileDetail, UserList, UserDetail, BookingList, BookingDetail, BookingByLeadBooker, RoomSearchList
+from .views import RoomList, RoomDetail, CompanyList, CompanyDetail, UserTypeList, UserTypeDetail, StatusList, StatusDetail, ProfileList, ProfileDetail, UserList, UserDetail, BookingList, BookingDetail, BookingByLeadBooker, RoomSearchList 
 
 urlpatterns = [
     path('room', RoomList.as_view()),

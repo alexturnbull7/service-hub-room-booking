@@ -8,11 +8,14 @@ from rest_framework.decorators import action
 
 from django.contrib.auth.models import User
 
+from django.utils import timezone
+
 from .models import Room, Company, UserType, Status, Profile, Booking
 from .serializers import UserSerializer, RoomSerializer, CompanySerializer, UserTypeSerializer, StatusSerializer, ProfileSerializer, BookingSerializer
 from dateutil import parser
 
 from datetime import datetime
+from datetime import datetime, timedelta
 
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
@@ -92,4 +95,6 @@ class BookingByLeadBooker(generics.ListAPIView):
         lead_booker_id = self.request.query_params.get('lead_booker_id', None)
         filtered = Booking.objects.filter(lead_booker__id=lead_booker_id)
         return filtered
+         
+    
 
