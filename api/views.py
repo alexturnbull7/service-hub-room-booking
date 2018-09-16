@@ -8,6 +8,9 @@ from rest_framework.decorators import action
 
 from django.contrib.auth.models import User
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 from django.utils import timezone
 
 from .models import Room, Company, UserType, Status, Profile, Booking
@@ -93,8 +96,14 @@ class BookingByLeadBooker(generics.ListAPIView):
 
     def get_queryset(self):
         lead_booker_id = self.request.query_params.get('lead_booker_id', None)
-        filtered = Booking.objects.filter(lead_booker__id=lead_booker_id)
+        nowTime = self.request.query_params.get('nowTime', None)
+        now_time_dt = parser.parse(nowTime)
+        filtered = Booking.objects.filter(lead_booker__id=lead_booker_id, end_time__gte=now_time_dt)
         return filtered
-         
+
+        
+
+
+
     
 
