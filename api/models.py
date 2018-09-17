@@ -9,6 +9,9 @@ class Booking(models.Model):
     notes = models.TextField()
     room = models.ForeignKey('Room', on_delete=models.CASCADE, blank=True, null=True)
 
+    def __str__(self):
+        return str(self.lead_booker.first_name) + ' ' + str(self.lead_booker.last_name) + ' - ' + str(self.start_time) + ' - ' + str(self.end_time) + ' - ' + str(self.room)
+
 
 # Create your models here.
 class Room(models.Model):
